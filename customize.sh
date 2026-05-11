@@ -73,5 +73,20 @@ yay -S --noconfirm --needed eblanfetch || echo "покойо"
 
 # ЗОНА ДОПОЛНИТЕЛЬНОЙ УСТАНОВКИ #
 
+echo "=== Настраиваем Calamares ==="
+
+# Делаем так, чтобы Calamares запускался от liveuser с правами
+mkdir -p airootfs/etc/skel/Desktop
+cat > airootfs/etc/skel/Desktop/Install_EBLAN_OS.desktop << 'EOF'
+[Desktop Entry]
+Name=Установить EBLAN OS
+Exec=calamares
+Icon=system-software-install
+Type=Application
+Categories=System;
+EOF
+
+chmod +x airootfs/etc/skel/Desktop/Install_EBLAN_OS.desktop
+
 
 echo "ъе"
