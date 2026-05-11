@@ -11,8 +11,8 @@ strings:
   shortVersionedName: EBLAN 1.1
   bootloaderEntryName: EBLAN
   productUrl: https://eblansoft.ru/os
-  welcomeMessage: Добро пожаловать в EBLAN OS
-  goodbyeMessage: Система почти готова ебашить
+  welcomeMessage: ало. Это EBLAN OS
+  goodbyeMessage: леее. ребутайся для халяля
 
 style:
   sidebarBackground: '#111111'
