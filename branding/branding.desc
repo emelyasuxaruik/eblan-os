@@ -4,9 +4,9 @@ welcomeStyleCalamares: true
 strings:
   productName: EBLAN OS
   shortProductName: EBLAN
-  version: 1.0
-  shortVersion: 1.0
-  versionedName: EBLAN OS 1.0
-  shortVersionedName: EBLAN 1.0
+  version: 1.1 Paradox
+  shortVersion: 1.1
+  versionedName: EBLAN OS Paradox
+  shortVersionedName: EBLAN 1.1
   bootloaderEntryName: EBLAN
-  productUrl: https://eblanbrowser.ru
+  productUrl: https://eblansoft.ru/os
