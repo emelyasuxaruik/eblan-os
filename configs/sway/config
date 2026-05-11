@@ -1,0 +1,19 @@
+set $mod Mod4
+
+exec waybar
+exec swaybg -c '#111111'
+exec-once sh -c 'sleep 3 && calamares'
+
+bindsym $mod+Return exec kitty
+bindsym $mod+d exec wofi --show drun
+
+floating_modifier $mod
+
+default_border pixel 2
+
+input * {
+    xkb_layout us,ru
+    xkb_options grp:alt_shift_toggle
+}
+
+output * bg /usr/share/backgrounds/default.png fill
