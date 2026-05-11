@@ -1,0 +1,12 @@
+componentName: eblan
+welcomeStyleCalamares: true
+
+strings:
+  productName: EBLAN OS
+  shortProductName: EBLAN
+  version: 1.0
+  shortVersion: 1.0
+  versionedName: EBLAN OS 1.0
+  shortVersionedName: EBLAN 1.0
+  bootloaderEntryName: EBLAN
+  productUrl: https://eblanbrowser.ru
