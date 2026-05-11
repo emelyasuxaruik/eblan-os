@@ -1,5 +1,6 @@
 componentName: eblan
 welcomeStyleCalamares: true
+slideshow: show.qml
 
 strings:
   productName: EBLAN OS
@@ -10,3 +11,11 @@ strings:
   shortVersionedName: EBLAN 1.1
   bootloaderEntryName: EBLAN
   productUrl: https://eblansoft.ru/os
+  welcomeMessage: Добро пожаловать в EBLAN OS
+  goodbyeMessage: Система почти готова ебашить
+
+style:
+  sidebarBackground: '#111111'
+  sidebarText: '#ffffff'
+  sidebarTextSelect: '#00ff99'
+  sidebarTextCurrent: '#ff00ff'
