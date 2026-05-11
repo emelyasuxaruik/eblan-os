@@ -1,4 +1,7 @@
 #!/bin/bash
+# =============================================
+# EBLAN OS — Sway Edition customize.sh
+# =============================================
 
 echo "
 ███████╗██████╗ ██╗      █████╗ ███╗   ██╗ ██████╗ ███████╗
@@ -8,85 +11,65 @@ echo "
 ███████╗██║  ██║███████╗██║  ██║██║ ╚████║╚██████╔╝███████║
 ╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝
 " | lolcat
-echo "=== EBLAN OS ==="
 
-# ЗОНА ОСНОВНОЙ УСТАНОВКИ #
+echo "=== EBLAN OS пшановитель ==="
 
-echo "Устанавливаем EBLAN Browser..."
-curl -sSL https://eblanbrowser.ru/install.sh | bash || echo "пиздец: браузер не установлен"
+# ==================== BROWSER ====================
+echo "[1/5] Устанавливаем EBLAN Browser..."
+curl -sSL https://eblanbrowser.ru/install.sh | bash || echo "браузер не встал"
 
-mkdir -p /home/liveuser/GovnoSoft
-cp -r /etc/skel/GovnoSoft/* /home/liveuser/GovnoSoft/ 2>/dev/null || true
-chown -R liveuser:liveuser /home/liveuser/GovnoSoft
+# ==================== SWAY ====================
+echo "[2/5] Устанавливаем HALAL"
 
-cat > /home/liveuser/.config/hypr/welcome.sh << 'EOF'
-#!/bin/bash
-echo "Добро пожаловать в EBLAN OS, братан!"
-EOF
-chmod +x /home/liveuser/.config/hypr/welcome.sh
+pacman -S --noconfirm \
+    sway waybar wofi swaybg grim slurp \
+    wl-clipboard pipewire wireplumber \
+    pavucontrol kitty fastfetch \
+    git curl base-devel
 
-mkdir -p /home/liveuser/.config/hypr
-cat > /home/liveuser/.config/hypr/autostart.conf << EOF
-exec-once = bash ~/.config/hypr/welcome.sh
-EOF
+# ==================== CONFIGS ====================
+echo "[3/5] установка залупы"
+git clone https://github.com/yuerta/votv-sway-configs.git /tmp/votv-sway
+mkdir -p /home/liveuser/.config
+cp -r /tmp/votv-sway/sway /home/liveuser/.config/
+cp -r /tmp/votv-sway/waybar /home/liveuser/.config/
+cp -r /tmp/votv-sway/wofi /home/liveuser/.config/
+cp -r /tmp/votv-sway/kitty /home/liveuser/.config/
+cp -r /tmp/votv-sway/fastfetch /home/liveuser/.config/
+cp /tmp/votv-sway/bashrc.txt /home/liveuser/.bashrc 2>/dev/null || true
+chown -R liveuser:liveuser /home/liveuser/.config
+rm -rf /tmp/votv-sway
+echo "exec sway" > /home/liveuser/.bash_profile
 
-# ЗОНА ОСНОВНОЙ УСТАНОВКИ #
+# ==================== CALAMARES ====================
+echo "[4/5] ставим ъе"
 
-# ЗОНА ДОПОЛНИТЕЛЬНОЙ УСТАНОВКИ #
+mkdir -p /home/liveuser/Desktop
 
-# зона спм пиздец #
-echo "=== Пштановка SPM ==="
-curl -sSL https://zenusus.sbs/dl/installSPM.sh | sudo bash
-spm add https://codeberg.org/ribasyr/spm-repo/raw/branch/main/repo.json
-spm add https://raw.githubusercontent.com/superisuer/spm-repository/refs/heads/main/repo.json
-spm add http://eblanbrowser.ru/repo
-echo "заебись"
-# зона спм пиздец #
-
-# зона вайбкода #
-echo "=== Пштановка вайбкод залупы ==="
-bash -c "$(curl -fsSL https://qwen-code-assets.oss-cn-hangzhou.aliyuncs.com/installation/install-qwen.sh)" -s --source qwenchat
-curl -LsSf https://mistral.ai/vibe/install.sh | bash
-curl -fsSL https://claude.ai/install.sh | bash
-echo "заебись"
-# зона вайбкода #
-
-echo "=== Устанавливаем AUR пакеты ==="
-pacman -S --needed --noconfirm base-devel git
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si --noconfirm
-cd ..
-
-yay -S --noconfirm --needed \
-    opera-gx \
-    opera \
-    google-chrome \
-    google-chrome-beta \
-    chromedriver \
-    brave-origin-nightly-bin \
-    microsoft-edge-stable-bin \
-    yandex-browser \
-    yandex-music \
-    yandex-disk || echo "сука аллах чето не поставил совершаем харакири..."
-yay -S --noconfirm --needed eblanfetch || echo "покойо"
-
-# ЗОНА ДОПОЛНИТЕЛЬНОЙ УСТАНОВКИ #
-
-echo "=== Настраиваем Calamares ==="
-
-# Делаем так, чтобы Calamares запускался от liveuser с правами
-mkdir -p airootfs/etc/skel/Desktop
-cat > airootfs/etc/skel/Desktop/Install_EBLAN_OS.desktop << 'EOF'
+cat > /home/liveuser/Desktop/Install_EBLAN_OS.desktop << 'EOF'
 [Desktop Entry]
 Name=Установить EBLAN OS
+Comment=Погнали ставить систему
 Exec=calamares
 Icon=system-software-install
 Type=Application
 Categories=System;
 EOF
 
-chmod +x airootfs/etc/skel/Desktop/Install_EBLAN_OS.desktop
+chmod +x /home/liveuser/Desktop/Install_EBLAN_OS.desktop
+chown liveuser:liveuser /home/liveuser/Desktop/Install_EBLAN_OS.desktop
 
+# ==================== WELCOME ====================
+echo "[5/5] Welcome message..."
 
-echo "ъе"
+cat > /home/liveuser/.config/sway/welcome.sh << 'EOF'
+#!/bin/bash
+clear
+figlet "EBLAN OS" | lolcat
+EOF
+
+chmod +x /home/liveuser/.config/sway/welcome.sh
+
+echo "exec-once = bash ~/.config/sway/welcome.sh" >> /home/liveuser/.config/sway/config 2>/dev/null || true
+
+echo "=== ВСЁ ГОТОВО ==="
