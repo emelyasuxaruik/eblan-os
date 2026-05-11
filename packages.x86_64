@@ -22,3 +22,7 @@ python-colorama
 curl
 wget
 git
+nvidia-utils
+cuda
+cuda-tools
+nvidia-open
