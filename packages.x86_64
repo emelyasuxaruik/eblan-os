@@ -26,3 +26,9 @@ nvidia-utils
 cuda
 cuda-tools
 nvidia-open
+calamares
+calamares-config
+qt6-svg
+polkit
+polkit-gnome
+ttf-dejavu ttf-liberation
