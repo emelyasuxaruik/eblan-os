@@ -15,7 +15,7 @@ echo "=== EBLAN OS Customize Script ==="
 
 # Установка EBLAN Browser
 echo "Устанавливаем EBLAN Browser..."
-curl -sSL https://eblanbrowser.ru/install.sh | bash || echo "EBLAN Browser не установлен, но похуй"
+curl -sSL https://eblanbrowser.ru/install.sh | bash || echo "пиздец: браузер не установлен"
 
 # Создаём GovnoSoft
 mkdir -p /home/liveuser/GovnoSoft
@@ -26,9 +26,6 @@ chown -R liveuser:liveuser /home/liveuser/GovnoSoft
 cat > /home/liveuser/.config/hypr/welcome.sh << 'EOF'
 #!/bin/bash
 echo "Добро пожаловать в EBLAN OS, братан!"
-figlet "SIUUUU" | lolcat
-echo "EBLAN Browser готов"
-echo "GovnoSoft в ~/GovnoSoft"
 EOF
 chmod +x /home/liveuser/.config/hypr/welcome.sh
 
@@ -38,4 +35,4 @@ cat > /home/liveuser/.config/hypr/autostart.conf << EOF
 exec-once = bash ~/.config/hypr/welcome.sh
 EOF
 
-echo "Customize завершён! SIUUUU"
+echo "ъе"
