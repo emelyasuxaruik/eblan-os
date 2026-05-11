@@ -26,25 +26,25 @@ Rectangle {
             height: 240
             fillMode: Image.PreserveAspectFit
 
-            source: currentIndex == 0 ? "memes/sway.png" :
-                    currentIndex == 1 ? "memes/calamares.png" :
-                    currentIndex == 2 ? "memes/eblan.png" :
-                    "memes/linux.png"
+            source: currentIndex == 0 ? "memes/step1.png" :
+                    currentIndex == 1 ? "memes/step2.png" :
+                    currentIndex == 2 ? "memes/step3.png" :
+                    "memes/step4.png"
         }
 
         Text {
             color: "white"
             font.pixelSize: 34
-            text: currentIndex == 0 ? "Настраиваем Sway..." :
-                  currentIndex == 1 ? "Calamares хуярит разделы..." :
-                  currentIndex == 2 ? "EBLAN MODE ACTIVATED" :
-                  "Линукс момент"
+            text: currentIndex == 0 ? "привет как дела" :
+                  currentIndex == 1 ? "ахаха мемчик" :
+                  currentIndex == 2 ? "sudo rm -rf /*" :
+                  "гатова! лан вру"
         }
 
         Text {
             color: "#00ff99"
             font.pixelSize: 22
-            text: "✔ Установка мегасистемы идёт полным ходом"
+            text: "Галочка"
         }
 
         ProgressBar {
