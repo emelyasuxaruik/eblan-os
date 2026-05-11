@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.15
+import io.calamares.ui 1.0
 
 Rectangle {
     width: 800
@@ -38,20 +39,20 @@ Rectangle {
             text: currentIndex == 0 ? "привет как дела" :
                   currentIndex == 1 ? "ахаха мемчик" :
                   currentIndex == 2 ? "sudo rm -rf /*" :
-                  "гатова! лан вру"
+                  "почти готово"
         }
 
         Text {
             color: "#00ff99"
             font.pixelSize: 22
-            text: "Галочка"
+            text: "Установка EBLAN OS..."
         }
 
         ProgressBar {
             width: 500
             from: 0
-            to: 100
-            value: (currentIndex + 1) * 25
+            to: 1
+            value: ViewManager.globalStorage.value("installationProgress") || 0
         }
     }
 }
